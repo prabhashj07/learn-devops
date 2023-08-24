@@ -1,0 +1,3 @@
+# Metadata for web_server role
+dependencies:
+  - geerlingguy.nginx

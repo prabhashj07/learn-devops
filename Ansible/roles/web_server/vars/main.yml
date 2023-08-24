@@ -1,0 +1,4 @@
+# Variables for web_server role
+nginx_port: 80
+server_name: example.com
+document_root: /var/www/html

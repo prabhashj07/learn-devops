@@ -1,0 +1,4 @@
+# Default variables for web_server role
+nginx_port: 80
+server_name: localhost
+document_root: /var/www

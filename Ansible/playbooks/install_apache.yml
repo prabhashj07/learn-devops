@@ -1,0 +1,14 @@
+---
+- name: Example Playbook 1
+  hosts: web_servers
+  tasks:
+    - name: Ensure Apache is installed
+      apt:
+        name: apache2
+        state: present
+      become: yes
+    - name: Configure package
+      template:
+        src: template.j2
+        dest: /etc/package.conf
+

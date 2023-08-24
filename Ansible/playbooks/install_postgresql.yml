@@ -1,0 +1,13 @@
+---
+- name: Example Playbook2
+  hosts: database_servers
+  tasks:
+    - name: Ensure PostgreSQL is installed
+      apt:
+        name: postgresql
+        state: present
+      become: yes
+    - name: Configure package
+      template:
+        src: template.j2
+        dest: /etc/package.conf

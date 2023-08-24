@@ -1,0 +1,15 @@
+---
+- name: Install a Package
+  hosts: your_target_hosts
+  become: yes  # Run tasks with administrative privileges
+
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+      when: ansible_os_family == "Debian"  # Only run on Debian-based systems
+
+    - name: Install the package
+      apt:
+        name: your_package_name
+        state: present  # Ensure the package is installed

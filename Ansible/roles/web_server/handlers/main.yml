@@ -1,0 +1,12 @@
+---
+# Restart Apache Web server 
+- name: Restart Apache
+  service:
+    name: apache2
+    state: restarted
+
+# Reload Nginx Web server
+- name: Reload Nginx
+  service:
+    name: nginx
+    state: reloaded

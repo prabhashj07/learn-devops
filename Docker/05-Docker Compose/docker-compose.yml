@@ -1,0 +1,38 @@
+# setup with a web application (using Node.js and MongoDB) along with a reverse proxy (using Nginx) for handling requests
+
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - web_app
+
+  web_app:
+    image: node:14
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    environment:
+      NODE_ENV: production
+    command: ["npm", "start"]
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - mongodb-data:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongodb-data:
+
+# Remember to create a file named nginx.conf in the same directory as your docker-compose.yml file with the Nginx configuration you'd like to use.

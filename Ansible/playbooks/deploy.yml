@@ -1,0 +1,19 @@
+---
+- name: Deploy Application
+  hosts: app_servers
+  tasks:
+    - name: Ensure Application Files Exist
+      stat:
+        path: /path/to/app_files/app_source_code.tar.gz
+      register: app_files_exist
+
+    - name: Extract Application Files
+      unarchive:
+        src: /path/to/app_files/app_source_code.tar.gz
+        dest: /path/to/deployment/directory/
+      when: app_files_exist.stat.exists
+
+    - name: Configure Application
+      template:
+        src: /path/to/templates/app_config.j2
+        dest: /path/to/deployment/directory/app_config.conf

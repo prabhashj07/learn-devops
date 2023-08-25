@@ -1,0 +1,8 @@
+---
+# Handlers for the database_server role
+- name: Restart MySQL
+  service:
+    name: mysql
+    state: restarted
+
+# Include more handler tasks as needed

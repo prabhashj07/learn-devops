@@ -1,0 +1,26 @@
+---
+# Main tasks for the database_server role
+- name: Ensure database service is running
+  service:
+    name: mysql
+    state: started
+
+- name: Create database
+  mysql_db:
+    name: my_database
+    state: present
+
+- name: Create database user
+  mysql_user:
+    name: db_user
+    password: db_password
+    priv: 'my_database.*:ALL'
+    state: present
+
+- name: Ensure MySQL root user password is set
+  mysql_user:
+    name: root
+    password: root_password
+    update_password: always
+
+

@@ -1,0 +1,5 @@
+# Metadata for database_server role
+dependencies:
+  - some_other_role
+
+# Add more metadata as needed

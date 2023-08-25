@@ -1,0 +1,5 @@
+# Variable for database_server role 
+db_host: localhost
+db_user: admin
+db_password: secretpassword
+

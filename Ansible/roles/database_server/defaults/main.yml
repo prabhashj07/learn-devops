@@ -1,0 +1,6 @@
+# Default variables for database_server role
+db_host: localhost
+db_user: user
+db_password: password
+
+# Add more default variables as needed
